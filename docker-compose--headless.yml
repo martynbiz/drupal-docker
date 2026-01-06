@@ -1,0 +1,29 @@
+services:
+  drupal:
+    image: drupal:${DRUPAL_VERSION}-apache
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres
+    environment:
+      DRUPAL_DB_HOST: postgres
+      DRUPAL_DB_NAME: ${POSTGRES_DATABASE}
+      DRUPAL_DB_USER: ${POSTGRES_USER}
+      DRUPAL_DB_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - drupal_sites:/var/www/html/sites
+    restart: always
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  drupal_sites:
+  postgres_data:

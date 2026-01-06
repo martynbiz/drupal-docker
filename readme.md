@@ -1,7 +1,16 @@
 ## Quick start
 
+## Standard install
+
 ```
-cp docker-compose.yml-example docker-compose.yml
+cp docker-compose--example.yml docker-compose.yml
+docker-compose up
+```
+
+## Headless Drupal
+
+```
+cp docker-compose--headless.yml docker-compose.yml
 docker-compose up
 ```
 

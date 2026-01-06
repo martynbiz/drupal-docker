@@ -1,5 +1,6 @@
-docker-compose.yml
-/modules
-/sites
-/themes
-/profiles
+*
+!.gitignore
+!docker-compose--example.yml
+!docker-compose--headless.yml
+!.env-example
+!readme.md
